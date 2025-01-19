@@ -10,10 +10,16 @@ export function setupEventListeners() {
   // Print button
   setupPrintButton();
 
-  // Collection button
-  document.getElementById('collectionBtn').addEventListener('click', showCollection);
+  // Collection button 
+  const collectionBtn = document.querySelector('.collection-btn'); 
+  if (collectionBtn) {
+    collectionBtn.addEventListener('click', showCollection);
+  }
 
-  // Card hover effects
-  document.addEventListener('mousemove', handleHover);
-  document.addEventListener('mouseleave', resetHover);
+  // Initial card hover effects if exists
+  const initialCard = document.querySelector('.card');
+  if (initialCard) {
+    initialCard.addEventListener('mousemove', handleHover);
+    initialCard.addEventListener('mouseleave', resetHover);
+  }
 }
